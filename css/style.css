@@ -1,0 +1,178 @@
+/* * ================================== */
+/* * HEADER */
+/* * ================================== */
+
+/* ! add a glowing effect of ray */
+
+@property --degree {
+    syntax: '<angle>';
+    inherits: true;
+    initial-value: 90deg;
+}
+
+
+nav {
+    position: fixed;
+    left: 50%;
+    translate: -50%;
+    --nav-width: min(62rem, 100%);
+    --nav-icon-bg: #0F1030;
+    --nav-icon-active-bg: #fff;
+    --nav-bg-1: #ccc;
+    --nav-bg-2: #808080;
+    --nav-glider-bg: hsl(228, 8%, 35%);
+    --nav-ray-bg: #0f7;
+    --nav-ray-width: 3px;
+    width: var(--nav-width, min(62rem, 100%));
+    height: 8rem;
+    border-radius: 0 0 5rem 5rem;
+    box-shadow: 0 10px 20px 0 rgba(43, 42, 124, 0.2);
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(var(--nag-bg-1, #bbb), var(--nav-bg-2, #C4C3CD)),
+        conic-gradient(from var(--degree, 0deg) at center,
+            transparent,
+            transparent,
+            transparent,
+            var(--nav-ray-bg, #0f7));
+    border-bottom: var(--nav-ray-width, 3px) solid #0000;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    animation: auto-rotate linear 8s infinite;
+    animation-fill-mode: both;
+}
+
+@keyframes auto-rotate {
+    0% {
+        background:
+            linear-gradient(var(--nav-bg-1, #bbb), var(--nav-bg-2, #C4C3CD)),
+            conic-gradient(from var(--degree, 90deg) at 50% -35rem,
+                transparent,
+                transparent,
+                transparent,
+                transparent,
+                transparent,
+                var(--nav-ray-bg, #0f7));
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+    }
+
+    50% {
+        --degree: 270deg;
+    }
+
+    100% {
+        --degree: 90deg;
+        background:
+            linear-gradient(var(--nav-bg-1, #bbb), var(--nav-bg-2, #C4C3CD)), conic-gradient(from var(--degree, 0deg) at 50% -35rem,
+                var(--nav-ray-bg, #0f7),
+                transparent,
+                transparent,
+                transparent,
+                transparent,
+                transparent);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+    }
+}
+
+nav .items {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+    width: min(50rem, 100%);
+}
+
+/* SVG COLOR */
+
+nav .items a svg {
+    fill: var(--nav-icon-bg, #0F103F);
+}
+
+nav .items a.active svg {
+    fill: var(--nav-icon-active-bg, #fff);
+}
+
+nav:has(.items a.active:first-child) .glider {
+    left: 8%;
+}
+
+nav:has(.items a.active:nth-child(2)) .glider {
+    left: 29%;
+}
+
+nav:has(.items a.active:nth-child(3)) .glider {
+    left: 50%;
+}
+
+nav:has(.items a.active:nth-child(4)) .glider {
+    left: 70%;
+}
+
+nav:has(.items a.active:nth-child(5)) .glider {
+    left: 92%;
+}
+
+/* GLIDER */
+nav .glider {
+    position: absolute;
+    top: 35%;
+    left: 8%;
+    translate: -50%;
+    z-index: -1;
+
+    background: var(--nav-glider-bg, hsl(228, 8%, 35%));
+    width: 15rem;
+    height: 15rem;
+    border-radius: 3rem;
+    transform: rotate(45deg);
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 576px) {
+    nav .items {
+        width: min(40rem, 100%);
+        gap: 6rem;
+    }
+
+    nav .glider {
+        width: 13rem;
+        height: 13rem;
+        border-radius: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    nav .items {
+        width: min(32rem, 100%);
+        gap: 4.7rem;
+    }
+
+
+    nav:has(.items a.active:first-child) .glider {
+        left: 5%;
+    }
+
+    nav:has(.items a.active:nth-child(2)) .glider {
+        left: 28%;
+    }
+
+    nav:has(.items a.active:nth-child(3)) .glider {
+        left: 50%;
+    }
+
+    nav:has(.items a.active:nth-child(4)) .glider {
+        left: 72%;
+    }
+
+    nav:has(.items a.active:nth-child(5)) .glider {
+        left: 95%;
+    }
+}
