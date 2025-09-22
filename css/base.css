@@ -13,6 +13,51 @@
     /* ! TYPOGRAPHY */
     --heading-color: #fff;
     --para-color: #fff;
+    --para-short-description-color: #66FFA6;
+    --para-footer-color: rgba(255, 255, 255, 0.80);
+
+
+    /* ! BUTTONS */
+    --hero-btn-color: #000;
+    --hero-btn-bg: #00FFA6;
+    --hero-btn-blur-bg: #71FFDB;
+    --hero-btn-hover-bg: #fff;
+
+    --preview-btn-color: #000;
+    --preview-btn-bg: #00F8BE;
+    --preview-btn-blur-bg: #71FFDB;
+    --preview-btn-hover-bg: #fff;
+
+    --hire-btn-color: #000;
+    --hire-btn-bg: #00F8BE;
+    --hire-btn-blur-bg: #71FFDB;
+    --hire-btn-hover-bg: #fff;
+
+    --send-btn-color: #000;
+    --send-btn-bg: #EEE;
+    --send-btn-blur-bg: #71FFDB;
+    --send-btn-hover-bg: #fff;
+
+
+    /* ! ANCHOR */
+    --anchor-color: #00E5FF;
+
+
+    /* ! NAVIGATION */
+    --nav-width: min(62rem, 100%);
+    --nav-icon-bg: #0F1030;
+    --nav-icon-active-bg: #fff;
+    --nav-bg-1: #ccc;
+    --nav-bg-2: #808080;
+    --nav-glider-bg: hsl(228, 8%, 35%);
+    --nav-ray-bg: #0f7;
+    --nav-ray-width: 3px;
+
+
+    /* ! TOOLTIP */
+    --tooltip-bg: #eee;
+    --tooltip-color: #000;
+
 }
 
 body {
@@ -37,6 +82,10 @@ ul {
     padding: 0;
 }
 
+img {
+    max-width: 100%;
+}
+
 /* * ========================================== */
 /* * TYPOGRAPHY */
 /* * ========================================== */
@@ -51,8 +100,8 @@ h1 {
 
 h2 {
     color: var(--heading-color, #FFF);
-    font: 400 normal 4.8rem/normal var(--base-font-family, "Krona One", sans-serif);
     letter-spacing: 0.384rem;
+    font: 400 normal 4.8rem/normal var(--base-font-family, "Krona One", sans-serif);
 }
 
 /* ------------------------- */
@@ -64,10 +113,37 @@ h2 {
     font: 400 normal 2.4rem/150% var(--base-font-family, "Krona One", sans-serif);
 }
 
-p.body-2 {
+
+.body-2,
+p {
     color: var(--para-color, #FFF);
     font: 400 normal 2rem/150% var(--base-font-family, "Krona One", sans-serif);
 }
+
+.body-3 {
+    color: var(--para-footer-color, rgba(255, 255, 255, 0.80));
+    font: 400 normal 1.8rem/170% var(--base-font-family, "Krona One", sans-serif);
+    letter-spacing: 0.1rem;
+}
+
+.short-desc-para {
+    color: var(--para-short-description-color, #66FFA6);
+    text-align: center;
+    letter-spacing: 0.1rem;
+    font: 400 normal 2rem/170% var(--base-font-family, "Krona One", sans-serif);
+}
+
+.card-list-para {
+    color: var(--para-color, #FFF);
+    font: 400 normal 1.8rem/170% var(--base-font-family, "Krona One", sans-serif);
+    letter-spacing: 0.1rem;
+}
+
+.email-para {
+    color: var(--para-color, #FFF);
+    font: 400 normal 2rem/normal var(--base-font-family, "Krona One", sans-serif);
+}
+
 
 
 
@@ -75,8 +151,262 @@ p.body-2 {
 /* * BUTTON */
 /* * ===================================== */
 
+/* ----------------------------------- */
+/* HERO BUTTON */
+
+.btn-hero-container {
+    width: 21.2rem;
+    height: 5rem;
+    position: relative;
+}
+
+.btn-hero-container .btn-hero {
+    border: 0;
+    outline: 0;
+    width: 21.2rem;
+    height: 5rem;
+    background: var(--hero-btn-bg, #00FFA6);
+    clip-path: path("M 106.084 0.05 H 191.183 C 193.406 0.05 195.496 1.1057 196.816 2.8945 L 210.095 20.8945 C 211.917 23.3651 211.917 26.7349 210.095 29.2055 L 196.816 47.2055 C 195.496 48.9943 193.406 50.05 191.183 50.05 H 20.8903 C 18.7207 50.05 16.6737 49.0439 15.3483 47.3262 L 1.4595 29.3262 C -0.4845 26.8068 -0.4845 23.2932 1.4595 20.7738 L 15.3483 2.7738 C 16.6737 1.0561 18.7207 0.05 20.8903 0.05 H 106.084 Z");
+    transition: .3s;
+
+    color: var(--hero-btn-color, #000);
+    text-align: center;
+    align-content: center;
+    letter-spacing: 0.12rem;
+    font: 400 normal 2.4rem/170% var(--base-font-family, "Krona One", sans-serif);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 2;
+}
+
+.btn-hero-container .btn-hero:hover {
+    letter-spacing: -0.1rem;
+    background: var(--hero-btn-hover-bg, #fff);
+}
+
+.btn-hero-container .btn-hero:hover+.blur {
+    filter: blur(17px);
+}
+
+.btn-hero-container .blur {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 1;
+    fill: var(--hero-btn-blur-bg, #71FFDB);
+    filter: blur(12.5px);
+    transition: .3s;
+}
+
+/* -------------------------------------- */
+/* PREVIEW BUTTON */
+
+.btn-preview-container {
+    width: 25.3rem;
+    height: 5rem;
+    position: relative;
+}
+
+.btn-preview {
+    border: 0;
+    outline: 0;
+    width: 25.3rem;
+    height: 5rem;
+    background: var(--preview-btn-bg, #00F8BE);
+    clip-path: path("M 124.497 0.05 H 225.219 C 227.223 0.05 229.131 0.9094 230.46 2.4103 L 246.393 20.4104 C 248.738 23.0591 248.738 27.0409 246.393 29.6897 L 230.46 47.6897 C 229.131 49.1906 227.223 50.05 225.219 50.05 H 23.6833 C 21.732 50.05 19.8693 49.2355 18.5444 47.803 L 1.8961 29.803 C -0.5853 27.1201 -0.5853 22.9799 1.8961 20.297 L 18.5444 2.297 C 19.8693 0.8645 21.732 0.05 23.6833 0.05 H 124.497 Z");
+    transition: .3s;
+    word-spacing: .3rem;
+
+    color: var(--preview-btn-color, #000);
+    text-align: center;
+    align-content: center;
+    font: 400 normal 2rem/170% var(--base-font-family, "Krona One", sans-serif);
+    letter-spacing: 0.1rem;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 2;
+}
+
+.btn-preview-container .btn-preview:hover {
+    letter-spacing: -0.1rem;
+    background: var(--preview-btn-hover-bg, #fff);
+}
+
+.btn-preview-container .btn-preview:hover+.blur {
+    filter: blur(17px);
+}
+
+.btn-preview-container .blur {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 1;
+    fill: var(--preview-btn-blur-bg, #71FFDB);
+    filter: blur(12.5px);
+    transition: .3s;
+}
+
+/* -------------------------------------------------- */
+/* HIRE NOW BUTTON */
+
+.btn-hire-container {
+    width: 25rem;
+    height: 5rem;
+    position: relative;
+}
+
+.btn-hire {
+    border: 0;
+    outline: 0;
+    width: 25.3rem;
+    height: 5rem;
+    background: var(--hire-btn-bg, #00F8BE);
+    clip-path: path("M 123.193 0.1 H 223.037 C 225.08 0.1 227.021 0.9922 228.351 2.5425 L 243.791 20.5425 C 246.04 23.1646 246.04 27.0354 243.791 29.6575 L 228.351 47.6575 C 227.021 49.2078 225.08 50.1 223.037 50.1 H 23.2542 C 21.266 50.1 19.3716 49.2546 18.0439 47.7747 L 1.8942 29.7747 C -0.4921 27.115 -0.4921 23.085 1.8942 20.4253 L 18.0439 2.4253 C 19.3716 0.9454 21.266 0.1 23.2542 0.1 H 123.193 Z");
+    transition: .3s;
+
+    color: var(--hire-btn-color, #000);
+    text-align: center;
+    align-content: center;
+    letter-spacing: 0.12rem;
+    font: 400 normal 2.4rem/170% var(--base-font-family, "Krona One", sans-serif);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 2;
+}
+
+.btn-hire-container .btn-hire:hover {
+    letter-spacing: -0.1rem;
+    background: var(--hire-btn-hover-bg, #fff);
+}
+
+.btn-hire-container .btn-hire:hover+.blur {
+    filter: blur(17px);
+}
+
+.btn-hire-container .blur {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 1;
+    fill: var(--hire-btn-blur-bg, #71FFDB);
+    filter: blur(12.5px);
+    transition: .3s;
+}
 
 
+/* ------------------------------------------- */
+/* SEND BUTTON */
+
+.btn-send-container {
+    width: 47.4rem;
+    height: 7.7rem;
+    position: relative;
+}
+
+.btn-send {
+    border: 0;
+    outline: 0;
+    width: 47.4rem;
+    height: 7.7rem;
+    background: var(--send-btn-bg, #00F8BE);
+    clip-path: path("M 235.745 0.0902 H 439.68 C 442.945 0.0902 446.005 1.6846 447.876 4.361 L 467.885 32.986 C 470.291 36.4268 470.291 41.0037 467.885 44.4445 L 447.876 73.0695 C 446.005 75.746 442.945 77.34 439.68 77.34 H 31.5968 C 28.451 77.34 25.4886 75.86 23.5999 73.3444 L 2.108 44.7194 C -0.5628 41.1621 -0.5628 36.2683 2.108 32.7111 L 23.5999 4.0861 C 25.4886 1.5705 28.451 0.0902 31.5968 0.0902 H 235.745 Z");
+    transition: .3s;
+
+    color: var(--send-btn-color, #000);
+    text-align: center;
+    align-content: center;
+    letter-spacing: 0.12rem;
+    font: 400 normal 2.4rem/170% var(--base-font-family, "Krona One", sans-serif);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 2;
+}
+
+.btn-send-container .btn-send:hover {
+    letter-spacing: -0.1rem;
+    background: var(--send-btn-hover-bg, #fff);
+}
+
+.btn-send-container .btn-send:hover+.blur {
+    filter: blur(17px);
+}
+
+.btn-send-container .blur {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 1;
+    fill: var(--send-btn-blur-bg, #71FFDB);
+    filter: blur(12.5px);
+    transition: .3s;
+}
+
+
+/* * ====================================== */
+/* * ANCHOR */
+/* * ====================================== */
+
+
+.link-vid,
+.link {
+    color: var(--anchor-color, #00E5FF);
+    font: 400 normal 2rem/170% var(--base-font-family, "Krona One", sans-serif);
+    letter-spacing: 0.1rem;
+    text-decoration: none;
+    transition: .15s;
+    position: relative;
+}
+
+.link-vid:hover,
+.link:hover {
+    filter: hue-rotate(220deg);
+}
+
+/* ----------------------------------- */
+/*  VIDEO LINK */
+
+.link-vid::after {
+    content: '';
+    display: block;
+    height: .2rem;
+    width: 75%;
+    background: var(--anchor-color, #00E5FF);
+
+    position: absolute;
+    bottom: -.5rem;
+    right: 0;
+}
+
+/* ------------------------------------ */
+/* NORMAL LINK */
+
+.link::after {
+    content: '';
+    display: block;
+    height: .2rem;
+    width: 100%;
+    background: var(--anchor-color, #00E5FF);
+
+    position: absolute;
+    bottom: -.5rem;
+    left: 0;
+}
 
 /* * ===================================== */
 /* * CUSTOM TOOLTIP (BS5) */
@@ -86,8 +416,8 @@ p.body-2 {
 .custom-tooltip {
     font-size: 1.6rem;
     font-weight: 700;
-    --bs-tooltip-bg: var(--primary, #54BD95);
-    --bs-tooltip-color: var(--color-white, #fff);
+    --bs-tooltip-bg: var(--tooltip-bg, #eee);
+    --bs-tooltip-color: var(--tooltip-color, #000);
 }
 
 .custom-tooltip .tooltip-inner {
@@ -135,7 +465,7 @@ p.body-2 {
 /* * ========================================== */
 /* * CUSTOM SCROLLBAR */
 /* * ========================================== */
-
+/* 
 ::-webkit-scrollbar {
     width: var(--scrollbar-width);
     background: transparent;
@@ -144,7 +474,7 @@ p.body-2 {
 ::-webkit-scrollbar-thumb {
     background: var(--scrollbar-bg);
     border-radius: 4rem;
-}
+} */
 
 
 
