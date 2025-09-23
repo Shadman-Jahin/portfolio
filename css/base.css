@@ -95,7 +95,7 @@ img {
 
 h1 {
     color: var(--heading-color, #FFF);
-    font: 400 normal 7rem/normal var(--base-font-family, "Krona One", sans-serif);
+    font: 400 normal clamp(2.6rem, .4rem + 7vw, 6rem)/133% var(--base-font-family, "Krona One", sans-serif);
 }
 
 h2 {
@@ -117,7 +117,7 @@ h2 {
 .body-2,
 p {
     color: var(--para-color, #FFF);
-    font: 400 normal 2rem/150% var(--base-font-family, "Krona One", sans-serif);
+    font: 400 normal clamp(1.6rem, 1.455rem + 0.73vw, 2rem)/150% var(--base-font-family, "Krona One", sans-serif);
 }
 
 .body-3 {
@@ -389,7 +389,7 @@ p {
     background: var(--anchor-color, #00E5FF);
 
     position: absolute;
-    bottom: -.5rem;
+    bottom: .5rem;
     right: 0;
 }
 
@@ -404,7 +404,7 @@ p {
     background: var(--anchor-color, #00E5FF);
 
     position: absolute;
-    bottom: -.5rem;
+    bottom: 0.5rem;
     left: 0;
 }
 
@@ -443,9 +443,13 @@ p {
 /* * LAYOUT */
 /* * ===================================== */
 
+.container {
+    max-width: 95%;
+}
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(45rem, 100%), 54rem));
+    grid-template-columns: repeat(auto-fit, minmax(min(45rem, 100%), 62rem));
     place-content: center;
     place-items: center;
     gap: 4rem;
