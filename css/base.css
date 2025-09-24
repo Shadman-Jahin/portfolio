@@ -101,7 +101,7 @@ h1 {
 h2 {
     color: var(--heading-color, #FFF);
     letter-spacing: 0.384rem;
-    font: 400 normal 4.8rem/normal var(--base-font-family, "Krona One", sans-serif);
+    font: 400 normal clamp(3.5rem, 2.3rem + 3.33vw, 4.8rem)/normal var(--base-font-family, "Krona One", sans-serif);
 }
 
 /* ------------------------- */
@@ -110,7 +110,7 @@ h2 {
 .body-1 {
     color: var(--para-color, #FFF);
     text-align: justify;
-    font: 400 normal 2.4rem/150% var(--base-font-family, "Krona One", sans-serif);
+    font: 400 normal clamp(1.6rem, 0.862rem + 2.05vw, 2.4rem)/150% var(--base-font-family, "Krona One", sans-serif);
 }
 
 
@@ -444,7 +444,7 @@ p {
 /* * ===================================== */
 
 .container {
-    max-width: 95%;
+    max-width: min(1400px, 95%);
 }
 
 .grid {

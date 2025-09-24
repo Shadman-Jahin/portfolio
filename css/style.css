@@ -183,7 +183,7 @@ nav .glider {
 /* * ======================================== */
 
 #hero {
-    padding: 13rem 0;
+    padding: 15rem 0;
     background: radial-gradient(circle 50rem at 200px -230px,
             rgba(0, 255, 47, 0.60) 0%,
             rgba(115, 115, 115, 0.00) 100%),
@@ -192,6 +192,7 @@ nav .glider {
             rgba(115, 115, 115, 0.00) 100%),
         url("../images/hero-background.png") no-repeat top left / cover;
     position: relative;
+    overflow: hidden;
 }
 
 
@@ -335,3 +336,198 @@ nav .glider {
         }
     }
 }
+
+/* * ==================================== */
+/* * ABOUT ME*/
+/* * ==================================== */
+
+#about {
+    padding: 30rem 0;
+    background: url("../images/about-background.png") no-repeat top right / cover;
+}
+
+#about .container {
+    position: relative;
+}
+
+#about .box {
+    width: min(100%, 115rem);
+    margin: 0 auto;
+    padding: 7rem clamp(1rem, -3.615rem + 12.82vw, 6rem);
+    border-radius: 5rem;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.10), 0 0 50px 4px rgba(255, 255, 255, 0.20) inset;
+    backdrop-filter: blur(37.5px);
+    z-index: 1;
+    position: relative;
+}
+
+/* ----------------------------------- */
+/* ABSTRACT */
+
+#about [class^="abstract"] {
+    position: absolute;
+    pointer-events: none;
+}
+
+#about .abstract-circle1 {
+    top: -10rem;
+    left: 0;
+
+    width: 30rem;
+    height: 30rem;
+    border-radius: 30rem;
+    background: linear-gradient(180deg, #0F7 0%, #70F 100%);
+    animation: color-change 4s linear infinite;
+}
+
+#about .abstract-circle2 {
+    bottom: -10rem;
+    right: 0;
+
+    width: 40rem;
+    height: 40rem;
+    border-radius: 40rem;
+    background: linear-gradient(180deg, #F07 0%, #70F 100%);
+    animation: color-change 4s linear infinite;
+}
+
+@keyframes color-change {
+    50% {
+        filter: hue-rotate(-90deg);
+    }
+}
+
+
+#about [class^="abstract-square"] {
+    width: clamp(10rem, 0.769rem + 25.64vw, 20rem);
+    height: clamp(10rem, 0.769rem + 25.64vw, 20rem);
+    border-radius: 2rem;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.10), 0 0 50px 4px rgba(255, 255, 255, 0.20) inset;
+    backdrop-filter: blur(37.5px);
+    z-index: 1;
+    overflow: hidden;
+}
+
+#about [class^="abstract-square"]::after {
+    content: "";
+    width: 300%;
+    height: 80%;
+    position: absolute;
+    top: -120%;
+    left: -120%;
+    background: linear-gradient(to bottom, transparent 0 30%, #999, transparent 70% 100%);
+    transition: .8s;
+    rotate: -45deg;
+    pointer-events: none;
+    animation: shine var(--shine-duration, 5s) linear infinite;
+}
+
+@keyframes shine {
+    50% {
+        top: 120%;
+        left: 120%;
+    }
+}
+
+@keyframes down {
+    50% {
+        transform: translateY(3rem);
+    }
+}
+
+@keyframes up {
+    50% {
+        transform: translateY(-3rem);
+    }
+}
+
+#about .abstract-square1 {
+    top: 0;
+    right: 20%;
+    translate: 20% -70%;
+    animation: down 3s ease-in-out infinite;
+    --shine-duration: 4s;
+}
+
+#about .abstract-square2 {
+    bottom: 0;
+    left: 20%;
+    translate: -20% 70%;
+    animation: up 3s ease-in-out infinite;
+    animation-delay: 1s;
+    --shine-duration: 5s;
+}
+
+/* ----------------------------------- */
+/* TEXT */
+
+#about .box h2 {
+    text-align: center;
+}
+
+#about .box p {
+    background: linear-gradient(95deg, #0FF 2.14%, #0F7 97.96%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+#about .box p span {
+    background: linear-gradient(#df0, #df0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* * =========================================== */
+/* * VIDEO */
+/* * =========================================== */
+
+#video {
+    text-align: center;
+    padding: 15rem 0;
+    background: url("../images/video-background.png") no-repeat top right / cover;
+}
+
+#video p {
+    width: min(100%, 60rem);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --------------------------------------------- */
+/* VIDEO CONTENT */
+
+#video .video-container {
+    position: relative;
+}
+
+#video .video-container video {
+    width: min(100%, 120rem);
+    aspect-ratio: 16/9;
+    border-radius: 2rem;
+    position: relative;
+}
+
+#video .video-container #play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    transition: .3s;
+}
+
+#video .video-container #play-button:hover {
+    filter: hue-rotate(230deg);
+    transform: scale(.9)
+}
+
+/* * ===================================== */
+/* * PROJECTS */
+/* * ===================================== */
