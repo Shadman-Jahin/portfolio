@@ -53,4 +53,26 @@ document.addEventListener("DOMContentLoaded", () => {
         video.controls = false;
     });
 
+
+    //  * ===========================================
+    //  * BOX GRADIENT MOVE EFFECT BY MOUSE
+    //  * ===========================================
+
+    // Get the SVG element and the radial gradient
+    const boxBottom = document.querySelector(".box .box-bottom");
+    const gradient = boxBottom.querySelector('#box-bg #paint0_radial_77_231');
+
+    boxBottom.addEventListener('mousemove', (event) => {
+        // Get the mouse coordinates relative to the SVG element
+        const rect = boxBottom.getBoundingClientRect();
+        const mouseX = event.clientX - rect.left;
+        const mouseY = event.clientY - rect.top;
+
+        // Update the gradient's transform attribute
+        // The translate values are now based on the direct pixel position of the mouse
+        const newTransform = `translate(${mouseX} ${mouseY}) rotate(135.129) scale(447.501 447.501)`;
+        gradient.setAttribute('gradientTransform', newTransform);
+    });
+
+
 })

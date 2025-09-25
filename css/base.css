@@ -12,6 +12,7 @@
 
     /* ! TYPOGRAPHY */
     --heading-color: #fff;
+    --heading-color-2: #00F8BE;
     --para-color: #fff;
     --para-short-description-color: #66FFA6;
     --para-footer-color: rgba(255, 255, 255, 0.80);
@@ -77,9 +78,16 @@ html {
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    font: inherit;
+    color: inherit;
+}
+
 ul {
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 
 img {
@@ -102,6 +110,13 @@ h2 {
     color: var(--heading-color, #FFF);
     letter-spacing: 0.384rem;
     font: 400 normal clamp(3.5rem, 2.3rem + 3.33vw, 4.8rem)/normal var(--base-font-family, "Krona One", sans-serif);
+}
+
+h3 {
+    color: var(--heading-color-2, #00F8BE);
+    text-align: center;
+    font: 400 normal 2.4rem/170% var(--base-font-family, "Krona One", sans-serif);
+    letter-spacing: 0.12rem;
 }
 
 /* ------------------------- */
@@ -130,7 +145,7 @@ p {
     color: var(--para-short-description-color, #66FFA6);
     text-align: center;
     letter-spacing: 0.1rem;
-    font: 400 normal 2rem/170% var(--base-font-family, "Krona One", sans-serif);
+    font: 400 normal clamp(1.6rem, 1.455rem + 0.73vw, 2rem)/170% var(--base-font-family, "Krona One", sans-serif);
 }
 
 .card-list-para {
@@ -371,6 +386,8 @@ p {
     text-decoration: none;
     transition: .15s;
     position: relative;
+    width: auto;
+    height: auto;
 }
 
 .link-vid:hover,
@@ -404,7 +421,7 @@ p {
     background: var(--anchor-color, #00E5FF);
 
     position: absolute;
-    bottom: 0.5rem;
+    bottom: -.2rem;
     left: 0;
 }
 

@@ -375,8 +375,8 @@ nav .glider {
     top: -10rem;
     left: 0;
 
-    width: 30rem;
-    height: 30rem;
+    width: clamp(20rem, 10.769rem + 25.64vw, 30rem);
+    height: clamp(20rem, 10.769rem + 25.64vw, 30rem);
     border-radius: 30rem;
     background: linear-gradient(180deg, #0F7 0%, #70F 100%);
     animation: color-change 4s linear infinite;
@@ -386,8 +386,8 @@ nav .glider {
     bottom: -10rem;
     right: 0;
 
-    width: 40rem;
-    height: 40rem;
+    width: clamp(30rem, 20.769rem + 25.64vw, 40rem);
+    height: clamp(30rem, 20.769rem + 25.64vw, 40rem);
     border-radius: 40rem;
     background: linear-gradient(180deg, #F07 0%, #70F 100%);
     animation: color-change 4s linear infinite;
@@ -490,16 +490,18 @@ nav .glider {
 /* * =========================================== */
 
 #video {
-    text-align: center;
     padding: 15rem 0;
     background: url("../images/video-background.png") no-repeat top right / cover;
 }
 
-#video p {
-    width: min(100%, 60rem);
+
+#video .title {
+    text-align: center;
+    width: min(100%, 65rem);
     margin-left: auto;
     margin-right: auto;
 }
+
 
 /* --------------------------------------------- */
 /* VIDEO CONTENT */
@@ -531,3 +533,83 @@ nav .glider {
 /* * ===================================== */
 /* * PROJECTS */
 /* * ===================================== */
+
+#projects {
+    padding: 12rem 0;
+    background: url("../images/project-background.png") no-repeat top left / cover;
+}
+
+#projects .title {
+    text-align: center;
+    width: min(100%, 65rem);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------------------------------- */
+/* CARD */
+
+#projects .box {
+    position: relative;
+    height: 63.8rem;
+    width: 50rem;
+}
+
+/* ------------------- TOP BOX --------------------- */
+
+#projects .box .box-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 50rem;
+    height: 35rem;
+    background: #371;
+    clip-path: path("M -0 19.998 C -0 8.952 8.954 -0.002 20 -0.002 L 480 -0.002 C 491.0457 -0.002 500 8.952 500 19.998 L 500 256.3665 C 500 267.4122 491.0457 276.3665 480 276.3665 L 274.99 276.3665 C 263.944 276.3665 254.99 285.3208 254.99 296.3665 L 254.99 329.9976 C 254.99 341.0433 246.036 349.9976 234.99 349.9976 L 20 349.9976 C 8.954 349.9976 0 341.0433 0 329.9976 L -0 19.998 Z");
+}
+
+/* ------------------- BOTTOM BOX --------------------*/
+
+#projects .box .box-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 50rem;
+    height: 35rem;
+    padding: 0 2.5rem;
+    clip-path: path("M 500.1 330.102 C 500.1 341.148 491.146 350.102 480.1 350.102 L 20.1 350.102 C 9.0543 350.102 0.1 341.148 0.1 330.102 L 0.1 93.7335 C 0.1 82.6878 9.0543 73.7335 20.1 73.7335 L 248.108 73.7335 C 259.154 73.7335 268.108 64.7792 268.108 53.7335 V 20.1024 C 268.108 9.0567 277.063 0.1024 288.108 0.1024 L 480.1 0.1024 C 491.146 0.1024 500.1 9.0567 500.1 20.1024 L 500.1 330.102 Z");
+}
+
+#projects .box .box-bottom h3 {
+    width: 23rem;
+    padding: 1.6rem 0;
+    margin-left: auto;
+}
+
+#projects .box .box-bottom .list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+#projects .box .box-bottom .list span {
+    margin-left: .8rem;
+}
+
+#projects .box .box-bottom .cta {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+
+/* ------------------ BACKGROUND ------------------- */
+
+#projects .box .box-bottom #box-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+}
