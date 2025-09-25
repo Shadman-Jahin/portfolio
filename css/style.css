@@ -491,7 +491,7 @@ nav .glider {
 
 #video {
     padding: 15rem 0;
-    background: url("../images/video-background.png") no-repeat top right / cover;
+    background: url("../images/video-background.png") no-repeat bottom right / contain;
 }
 
 
@@ -535,8 +535,8 @@ nav .glider {
 /* * ===================================== */
 
 #projects {
-    padding: 12rem 0;
-    background: url("../images/project-background.png") no-repeat top left / cover;
+    padding: 15rem 0;
+    background: url("../images/project-background.png") no-repeat bottom left / contain;
 }
 
 #projects .title {
@@ -561,6 +561,43 @@ nav .glider {
     position: relative;
     height: 63.8rem;
     width: 50rem;
+}
+
+@media screen and (max-width: 576px) {
+    #projects .content {
+        gap: 0rem;
+    }
+
+    #projects .box {
+        transform: scale(.8);
+        translate: -10%;
+    }
+
+    #projects .box+.box {
+        margin-top: -8rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #projects .box {
+        transform: scale(.7);
+        translate: -18%;
+    }
+
+    #projects .box+.box {
+        margin-top: -16rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    #projects .box {
+        transform: scale(.6);
+        translate: -22%;
+    }
+
+    #projects .box+.box {
+        margin-top: -22rem;
+    }
 }
 
 /* ------------------- TOP BOX --------------------- */
