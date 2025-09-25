@@ -58,20 +58,43 @@ document.addEventListener("DOMContentLoaded", () => {
     //  * BOX GRADIENT MOVE EFFECT BY MOUSE
     //  * ===========================================
 
-    // Get the SVG element and the radial gradient
-    const boxBottom = document.querySelector(".box .box-bottom");
-    const gradient = boxBottom.querySelector('#box-bg #paint0_radial_77_231');
 
-    boxBottom.addEventListener('mousemove', (event) => {
-        // Get the mouse coordinates relative to the SVG element
-        const rect = boxBottom.getBoundingClientRect();
-        const mouseX = event.clientX - rect.left;
-        const mouseY = event.clientY - rect.top;
+    // Get all the box elements
+    const boxes = document.querySelectorAll("#projects .box");
 
-        // Update the gradient's transform attribute
-        // The translate values are now based on the direct pixel position of the mouse
-        const newTransform = `translate(${mouseX} ${mouseY}) rotate(135.129) scale(447.501 447.501)`;
-        gradient.setAttribute('gradientTransform', newTransform);
+    // Iterate over each box and add a unique event listener
+    boxes.forEach((elm, index) => {
+        // Select the box-bottom element within the current box
+        const boxBottom = elm.querySelector(".box-bottom");
+
+        if (boxBottom) {
+            // Construct the unique gradient IDs based on the loop index
+            const radialGradientId = `box-bg-${index + 1}-radial`;
+            const linearGradientId = `box-bg-${index + 1}-linear`;
+
+            // Select the gradients relative to the current box's SVG
+            const gradient = elm.querySelector(`#${radialGradientId}`);
+            const strokeGradient = elm.querySelector(`#${linearGradientId}`);
+
+            // Add a mousemove event listener to the individual box-bottom element
+            boxBottom.addEventListener('mousemove', (event) => {
+                // Get the mouse coordinates relative to the current box
+                const rect = boxBottom.getBoundingClientRect();
+                const mouseX = event.clientX - rect.left;
+                const mouseY = event.clientY - rect.top;
+
+                // Update the gradients for this specific box
+                if (gradient) {
+                    const newTransform = `translate(${mouseX} ${mouseY}) rotate(135.129) scale(447.501 447.501)`;
+                    gradient.setAttribute('gradientTransform', newTransform);
+                }
+
+                if (strokeGradient) {
+                    strokeGradient.setAttribute("x1", `${mouseX}`);
+                    strokeGradient.setAttribute("y1", `${mouseY}`);
+                }
+            });
+        }
     });
 
 
