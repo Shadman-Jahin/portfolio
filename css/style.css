@@ -537,7 +537,7 @@ nav .glider {
 
 #projects {
     padding: 15rem 0;
-    background: url("../images/project-background.png") no-repeat bottom left / contain;
+    background: url("../images/project-background.png") no-repeat bottom left / cover;
 }
 
 #projects .title {
@@ -1009,7 +1009,7 @@ footer {
     justify-content: space-between;
     align-items: flex-end;
     background: #000;
-    padding: 4rem 1rem 1rem;
+    padding: 2rem 1rem 1rem;
     flex-wrap: wrap;
     gap: 1rem 3rem;
 }

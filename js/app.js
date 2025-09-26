@@ -1,4 +1,34 @@
-document.addEventListener("DOMContentLoaded", () => {
+// * =============
+// * LOADER
+// * =============
+
+window.addEventListener("load", () => {
+    const navEntries = performance.getEntriesByType("navigation");
+    const loadTime = navEntries.length
+        ? navEntries[0].loadEventEnd - navEntries[0].startTime
+        : performance.now();
+
+    const minimumTime = 1000; // 1s 
+    const remainingTime = Math.max(0, minimumTime - loadTime);
+
+    setTimeout(() => {
+        document.documentElement.style.setProperty("--scrollbar-width", ".5rem");
+        document.querySelector(".loader-container")?.remove();
+
+        // Run the animation function ONLY after the loader is gone
+        runAfterPageLoad();
+    }, remainingTime);
+});
+
+// ! RUN-AFTER-PAGE-LOAD FUNCTION START -----------------------------------
+
+const runAfterPageLoad = () => {
+    // * ===================================
+    // * AOS INITIALIZE
+    // * ===================================
+
+    AOS.init({ once: false, duration: 1000, offset: 250, easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' });
+
     // * ===================================
     // * TYPE.JS INITIALIZE
     // * ===================================
@@ -10,6 +40,29 @@ document.addEventListener("DOMContentLoaded", () => {
         typeSpeed: 50,
         loop: true
     });
+}
+
+// ! RUN-AFTER-PAGE-LOAD FUNCTION END -----------------------------------
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // * ========================================
+    // * LENIS INTIALIZATION
+    // * ========================================
+
+    const lenis = new Lenis({
+        duration: 1.5, // Duration of the smooth scroll animation in seconds
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
+        direction: 'vertical', // vertical, horizontal
+        gestureDirection: 'vertical', // vertical, horizontal, both
+        smoothWheel: true, // Enables smooth scrolling for mouse wheel
+        wheelMultiplier: 1.5, // Adjust scroll speed for mouse wheel
+        smoothTouch: false, // Disables smooth scrolling for touch devices (often better for mobile performance)
+        touchMultiplier: 2, // Adjust scroll speed for touch
+        infinite: false, // Enables infinite scroll
+        autoRaf: true, // Automatically calls lenis.raf(time) using requestAnimationFrame
+    });
+
 
     // * ===================================
     // * BOOTSTRAP TOOLTIP INITIALIZE
@@ -114,8 +167,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (top >= offset && top < offset + height) {
                 links.forEach(anchor => {
-                    anchor.classList.remove("active");
-                    document.querySelector(`#custom-scroll-spy a[href*='${id}']`).classList.add("active");
+                    anchor?.classList.remove("active");
+                    document.querySelector(`#custom-scroll-spy a[href*='${id}']`)?.classList.add("active");
                 })
             }
         })

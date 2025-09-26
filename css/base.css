@@ -8,7 +8,9 @@
     --base-font-size: 10px;
     --base-font-family: "Krona One", sans-serif;
     --main-bg: #000D1C;
-
+    --scrollbar-width: 0;
+    /* ADJUST IN app.js/loader */
+    --scrollbar-bg: #0f7;
 
     /* ! TYPOGRAPHY */
     --heading-color: #fff;
@@ -51,7 +53,7 @@
     --nav-bg-1: #ccc;
     --nav-bg-2: #808080;
     --nav-glider-bg: hsl(228, 8%, 35%);
-    --nav-ray-bg: #0f7;
+    --nav-ray-bg: #7ff;
     --nav-ray-width: 3px;
 
 
@@ -77,18 +79,17 @@
 }
 
 html {
-    scroll-snap-type: y proximity;
     font-size: var(--base-font-size, 10px);
     font-family: var(--base-font-family, "Krona One", sans-serif);
-}
-
-section {
-    scroll-snap-align: start;
 }
 
 body {
     background: var(--main-bg, #000D1C);
     color: var(--para-color, #fff);
+}
+
+section {
+    overflow: hidden;
 }
 
 
@@ -114,6 +115,40 @@ ul {
 img {
     max-width: 100%;
 }
+
+
+/* ! ========================================== */
+/* ! CUSTOM (AOS) ANIMATIONS */
+/* ! ========================================== */
+
+/* ------------------------------------------- */
+/* FADE DOWN */
+
+[data-aos="fade-down-custom"] {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition-property: transform, opacity;
+}
+
+[data-aos="fade-down-custom"].aos-animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ------------------------------------------- */
+/* FILL RIGHT */
+
+[data-aos="fill-right-custom"] {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transition: clip-path 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-aos="fill-right-custom"].aos-animate {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+
+
 
 /* * ========================================== */
 /* * TYPOGRAPHY */
@@ -494,29 +529,93 @@ p {
 }
 
 
-/* * ====================== */
-/* * COOKIES (OFFCANVAS) */
-/* * ====================== */
-
 
 /* * ======================================== */
 /* * LOADER */
 /* * ======================================== */
 
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    background: #000D1C;
+    z-index: 100;
+}
+
+
+.loader {
+    --uib-color: #fff;
+    --uib-speed: 1s;
+    --uib-bg-opacity: .1;
+    height: 60px;
+    width: 100px;
+    transform-origin: center;
+    overflow: visible;
+}
+
+.car {
+    stroke: var(--uib-color);
+    stroke-dasharray: 100;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation:
+        travel var(--uib-speed) ease-in-out infinite,
+        fade var(--uib-speed) ease-out infinite;
+    will-change: stroke-dasharray, stroke-dashoffset;
+    transition: stroke 0.5s ease;
+}
+
+.track {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: var(--uib-color);
+    opacity: var(--uib-bg-opacity);
+}
+
+@keyframes travel {
+    0% {
+        stroke-dashoffset: 100;
+    }
+
+    75% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    20%,
+    55% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+
 
 /* * ========================================== */
 /* * CUSTOM SCROLLBAR */
 /* * ========================================== */
-/* 
+
 ::-webkit-scrollbar {
-    width: var(--scrollbar-width);
+    width: var(--scrollbar-width, .5rem);
     background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-bg);
+    background: var(--scrollbar-bg, #0f7);
     border-radius: 4rem;
-} */
+}
 
 
 
