@@ -98,4 +98,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-})
+    // * ==========================================
+    // * CUSTOM SCROLL SPY
+    // * ==========================================
+
+    const sections = document.querySelectorAll("section");
+    const links = document.querySelectorAll("#custom-scroll-spy a");
+
+    window.addEventListener("scroll", () => {
+        sections.forEach(sec => {
+            const top = window.scrollY;
+            const offset = sec.offsetTop;
+            const height = sec.offsetHeight;
+            const id = sec.getAttribute("id");
+
+            if (top >= offset && top < offset + height) {
+                links.forEach(anchor => {
+                    anchor.classList.remove("active");
+                    document.querySelector(`#custom-scroll-spy a[href*='${id}']`).classList.add("active");
+                })
+            }
+        })
+    })
+
+
+
+
+});

@@ -76,15 +76,21 @@
 
 }
 
+html {
+    scroll-snap-type: y proximity;
+    font-size: var(--base-font-size, 10px);
+    font-family: var(--base-font-family, "Krona One", sans-serif);
+}
+
+section {
+    scroll-snap-align: start;
+}
+
 body {
     background: var(--main-bg, #000D1C);
     color: var(--para-color, #fff);
 }
 
-html {
-    font-size: var(--base-font-size, 10px);
-    font-family: var(--base-font-family, "Krona One", sans-serif);
-}
 
 * {
     font-family: var(--base-font-family, "Krona One", sans-serif);

@@ -129,6 +129,7 @@ nav .glider {
     height: 15rem;
     border-radius: 3rem;
     transform: rotate(45deg);
+    transition: .3s;
 }
 
 /* RESPONSIVE */
@@ -489,7 +490,7 @@ nav .glider {
 
 #video {
     padding: 15rem 0;
-    background: url("../images/video-background.png") no-repeat bottom right / contain;
+    background: url("../images/video-background.png") no-repeat bottom right / cover;
 }
 
 
@@ -510,9 +511,11 @@ nav .glider {
 
 #video .video-container video {
     width: min(100%, 120rem);
-    aspect-ratio: 16/9;
     border-radius: 2rem;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 #video .video-container #play-button {
@@ -664,7 +667,7 @@ nav .glider {
 /* * ========================================= */
 
 #hire {
-    padding: 20rem 0;
+    padding: 40rem 0;
     background: url("../images/hire-now-background.png") no-repeat top left / cover;
 }
 
