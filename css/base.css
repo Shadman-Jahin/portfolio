@@ -55,6 +55,21 @@
     --nav-ray-width: 3px;
 
 
+    /* ! CONTACT SECTION */
+    --input-border-color: #fff;
+    --input-border-color-on-focus: #0f7;
+    --input-border-color-on-invalid: #f07;
+    --input-border-color-on-required: #f00;
+
+    --input-color: #fff;
+    --input-color-on-focus: #0f7;
+    --input-color-on-invalid: #f07;
+    --input-color-on-required: #f00;
+
+    --input-placeholder-color: rgba(255, 255, 255, 0.75);
+    --input-icon-color: #fff;
+    --direct-email-text-color: #00FFBF;
+
     /* ! TOOLTIP */
     --tooltip-bg: #eee;
     --tooltip-color: #000;
@@ -156,7 +171,7 @@ p {
 
 .email-para {
     color: var(--para-color, #FFF);
-    font: 400 normal 2rem/normal var(--base-font-family, "Krona One", sans-serif);
+    font: 400 normal 1.6rem/180% var(--base-font-family, "Krona One", sans-serif);
 }
 
 

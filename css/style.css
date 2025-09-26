@@ -2,8 +2,6 @@
 /* * HEADER */
 /* * ================================== */
 
-/* ! add a glowing effect of ray */
-
 header {
     position: fixed;
     top: 0;
@@ -658,4 +656,388 @@ nav .glider {
     left: 50%;
     translate: -50% -50%;
     z-index: -1;
+}
+
+
+/* * ========================================= */
+/* * HIRE NOW */
+/* * ========================================= */
+
+#hire {
+    padding: 20rem 0;
+    background: url("../images/hire-now-background.png") no-repeat top left / cover;
+}
+
+#hire h2 {
+    width: min(100%, 60rem);
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hire .btn-hire-container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* * ===================================== */
+/* * CONTACT */
+/* * ===================================== */
+
+#contact {
+    padding: 15rem 0;
+    background: url("../images/contact-background.png") no-repeat left / cover;
+}
+
+
+#contact .container {
+    max-width: min(800px, 100%);
+    position: relative;
+}
+
+#contact .title {
+    text-align: center;
+    width: min(100%, 65rem);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contact .box {
+    width: min(100%, 60rem);
+    min-height: 40rem;
+    margin: 0 auto;
+    padding: 8rem clamp(1rem, -3.615rem + 12.82vw, 6rem) 1rem;
+    border-radius: 5rem;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.10), 0 0 50px 4px rgba(255, 255, 255, 0.20) inset;
+    backdrop-filter: blur(37.5px);
+    z-index: 1;
+    position: relative;
+}
+
+/* --------------------------------------------- */
+/* INPUT FIELDS */
+
+#contact .name,
+#contact .email {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7rem;
+    border: 3px solid var(--input-border-color, #fff);
+    border-radius: 1.5rem;
+}
+
+#contact .name input,
+#contact .email input {
+    flex-grow: 1;
+    height: 100%;
+    background: transparent;
+    outline: 0;
+    border: 0;
+    padding: 0 1.5rem;
+    color: var(--input-color, #fff);
+    font: 400 1.8rem/170% var(--base-font-family, "Krona One", sans-serif);
+
+}
+
+
+#contact .name .icon,
+#contact .email .icon {
+    margin-right: 1.5rem;
+    fill: var(--input-icon-color, #fff);
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+    color: var(--input-placeholder-color, rgba(255, 255, 255, 0.75));
+    font: 400 1.6rem/170% var(--base-font-family, "Krona One", sans-serif);
+    letter-spacing: 0.1rem;
+}
+
+/* ! RESPONSIVE */
+@media screen and (max-width: 600px) {
+    .btn-send-container {
+        transform: scale(.8);
+        translate: -10%;
+    }
+
+    #contact .abstract-square2 {
+        bottom: -5% !important;
+    }
+}
+
+@media screen and (max-width: 475px) {
+
+    #contact .name input,
+    #contact .email input {
+        font: 400 1.4rem/170% var(--base-font-family, "Krona One", sans-serif);
+    }
+
+    #contact input::placeholder,
+    #contact textarea::placeholder {
+        font: 400 1.4rem/170% var(--base-font-family, "Krona One", sans-serif);
+    }
+
+
+
+    .btn-send-container {
+        transform: scale(.7);
+        translate: -15%;
+    }
+
+    #contact .name input,
+    #contact .email input {
+        flex-grow: 0;
+        width: 80%;
+    }
+
+    #contact .icon {
+        width: 2.5rem;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .btn-send-container {
+        transform: scale(.6);
+        translate: -20%;
+    }
+}
+
+
+/* ON FOCUS */
+
+#contact .name input:focus,
+#contact .email input:focus {
+    color: var(--input-color-on-focus, #0F7);
+}
+
+#contact .name:has(input:focus),
+#contact .email:has(input:focus) {
+    border-color: var(--input-border-color-on-focus, #0f7);
+}
+
+#contact .name input:focus+svg,
+#contact .email input:focus+svg {
+    fill: var(--input-color-on-focus, #0F7);
+}
+
+/* ON INVALID */
+
+#contact .name input:invalid:not(:placeholder-shown),
+#contact .email input:invalid:not(:placeholder-shown) {
+    color: var(--input-color-on-invalid, #f07);
+}
+
+#contact .name:has(input:invalid:not(:placeholder-shown)),
+#contact .email:has(input:invalid:not(:placeholder-shown)) {
+    border-color: var(--input-border-color-on-invalid, #f07);
+}
+
+#contact .name input:invalid:not(:placeholder-shown)+svg,
+#contact .email input:invalid:not(:placeholder-shown)+svg {
+    fill: var(--input-color-on-invalid, #f07);
+}
+
+
+/* MESSAGE -----------------------------------------*/
+#contact .message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30rem;
+    border: 3px solid var(--input-border-color, #fff);
+    border-radius: 1.5rem;
+}
+
+#contact .message textarea {
+    padding: 1.5rem;
+    flex-grow: 1;
+    height: 100%;
+    background: transparent;
+    outline: 0;
+    border: 0;
+    color: var(--input-color);
+    font: 400 1.8rem/170% var(--base-font-family, "Krona One", sans-serif)
+}
+
+#contact .message .icon {
+    align-self: flex-start;
+    margin-top: 1.5rem;
+    margin-right: 1.5rem;
+    fill: var(--input-icon-color, #fff);
+}
+
+/* ON FOCUS */
+
+
+#contact .message textarea:focus {
+    color: var(--input-color-on-focus, #0f7);
+}
+
+#contact .message:has(textarea:focus) {
+    border-color: var(--input-border-color-on-focus, #0f7);
+}
+
+#contact .message textarea:focus+svg {
+    fill: var(--input-color-on-focus, #0f7);
+}
+
+
+/* DIRECT EMAIL */
+#contact .direct-email {
+    text-align: right;
+}
+
+#contact .direct-email span {
+    color: var(--direct-email-text-color, #00FFBF)
+}
+
+
+/* ----------------------------------- */
+/* ABSTRACT */
+
+#contact [class^="abstract"] {
+    position: absolute;
+    pointer-events: none;
+}
+
+#contact .abstract-circle1 {
+    top: -10rem;
+    left: 0;
+
+    width: clamp(20rem, 10.769rem + 25.64vw, 30rem);
+    height: clamp(20rem, 10.769rem + 25.64vw, 30rem);
+    border-radius: 30rem;
+    background: linear-gradient(180deg, #0F7 0%, #70F 100%);
+    animation: color-change 4s linear infinite;
+}
+
+#contact .abstract-circle2 {
+    bottom: -10rem;
+    right: 0;
+
+    width: clamp(30rem, 20.769rem + 25.64vw, 40rem);
+    height: clamp(30rem, 20.769rem + 25.64vw, 40rem);
+    border-radius: 40rem;
+    background: linear-gradient(180deg, #F07 0%, #70F 100%);
+    animation: color-change 4s linear infinite;
+}
+
+@keyframes color-change {
+    50% {
+        filter: hue-rotate(-90deg);
+    }
+}
+
+
+#contact [class^="abstract-square"] {
+    width: clamp(10rem, 0.769rem + 25.64vw, 20rem);
+    height: clamp(10rem, 0.769rem + 25.64vw, 20rem);
+    border-radius: 2rem;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.10), 0 0 50px 4px rgba(255, 255, 255, 0.20) inset;
+    backdrop-filter: blur(37.5px);
+    z-index: 1;
+    overflow: hidden;
+}
+
+#contact [class^="abstract-square"]::after {
+    content: "";
+    width: 300%;
+    height: 80%;
+    position: absolute;
+    top: -120%;
+    left: -120%;
+    background: linear-gradient(to bottom, transparent 0 30%, #999, transparent 70% 100%);
+    transition: .8s;
+    rotate: -45deg;
+    pointer-events: none;
+    animation: shine var(--shine-duration, 5s) linear infinite;
+}
+
+@keyframes shine {
+    50% {
+        top: 120%;
+        left: 120%;
+    }
+}
+
+@keyframes down {
+    50% {
+        transform: translateY(3rem);
+    }
+}
+
+@keyframes up {
+    50% {
+        transform: translateY(-3rem);
+    }
+}
+
+#contact .abstract-square1 {
+    top: 0;
+    right: 20%;
+    translate: 20% -70%;
+    animation: down 3s ease-in-out infinite;
+    --shine-duration: 4s;
+}
+
+#contact .abstract-square2 {
+    bottom: 0;
+    left: 20%;
+    translate: -20% 70%;
+    animation: up 3s ease-in-out infinite;
+    animation-delay: 1s;
+    --shine-duration: 5s;
+}
+
+
+
+/* * ============================================= */
+/* * FOOTER */
+/* * ============================================= */
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background: #000;
+    padding: 4rem 1rem 1rem;
+    flex-wrap: wrap;
+    gap: 1rem 3rem;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.80);
+    font: 400 1.4rem/170% var(--base-font-family, "Krona One", sans-serif);
+    /* 3.06rem */
+    letter-spacing: 0.1rem;
+}
+
+footer p span {
+    color: #00FFBF;
+}
+
+footer .left span {
+    color: #00FF0F;
+}
+
+footer .right {
+    text-align: right;
+}
+
+@media screen and (max-width: 761px) {
+    footer .right {
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    footer p {
+        font: 400 1.2rem/170% var(--base-font-family, "Krona One", sans-serif);
+    }
 }
