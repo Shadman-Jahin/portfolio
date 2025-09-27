@@ -650,6 +650,23 @@ nav .glider {
     gap: 3rem;
 }
 
+/* TEXT DELETE  */
+
+#projects .text-delete {
+    position: relative;
+    opacity: .6;
+}
+
+#projects .text-delete::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    translate: -2% -50%;
+    width: 63%;
+    height: .2rem;
+    background: #fff;
+}
 
 /* ------------------ BACKGROUND ------------------- */
 
