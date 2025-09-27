@@ -158,22 +158,40 @@ document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section");
     const links = document.querySelectorAll("#custom-scroll-spy a");
 
-    window.addEventListener("scroll", () => {
-        sections.forEach(sec => {
-            const top = window.scrollY;
-            const offset = sec.offsetTop;
-            const height = sec.offsetHeight;
-            const id = sec.getAttribute("id");
+    // ⭐️ Adjust this value to the actual height of your fixed navigation/header
+    const headerHeight = 80;
 
-            if (top >= offset && top < offset + height) {
+    const observerOptions = {
+        root: null,
+        // Top margin: Negative value equal to header height (e.g., -80px)
+        // Bottom margin: Large negative percentage (e.g., -80%) to shrink the detection area.
+        rootMargin: `-${headerHeight}px 0px -80% 0px`,
+        threshold: 0.01 // Only needs to barely cross the line
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // Only proceed if the section is intersecting the defined rootMargin area
+            if (entry.isIntersecting) {
+                let id = entry.target.getAttribute("id");
+
+                // Your custom logic for section ID mapping
+                if (id === "hire") { id = "projects"; }
+
+                // Remove 'active' from all links
                 links.forEach(anchor => {
-                    anchor?.classList.remove("active");
-                    document.querySelector(`#custom-scroll-spy a[href*='${id}']`)?.classList.add("active");
-                })
-            }
-        })
-    })
+                    anchor.classList.remove("active");
+                });
 
+                // Add 'active' to the corresponding link
+                document.querySelector(`#custom-scroll-spy a[href*='${id}']`)?.classList.add("active");
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
 
 
 
