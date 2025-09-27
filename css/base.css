@@ -12,12 +12,29 @@
     /* ADJUST IN app.js/loader */
     --scrollbar-bg: #0f7;
 
+
     /* ! TYPOGRAPHY */
     --heading-color: #fff;
     --heading-color-2: #00F8BE;
     --para-color: #fff;
     --para-short-description-color: #66FFA6;
     --para-footer-color: rgba(255, 255, 255, 0.80);
+
+
+    /* ! NAVIGATION */
+    --nav-width: min(62rem, 100%);
+    --nav-icon-bg: #0F1030;
+    --nav-icon-active-bg: #fff;
+    --nav-bg-1: #ccc;
+    --nav-bg-2: #808080;
+    --nav-glider-bg: hsl(228, 8%, 35%);
+    --nav-ray-bg: #7ff;
+    --nav-ray-width: 3px;
+
+
+    /* ! TOOLTIP */
+    --tooltip-bg: #eee;
+    --tooltip-color: #000;
 
 
     /* ! BUTTONS */
@@ -46,17 +63,6 @@
     --anchor-color: #00E5FF;
 
 
-    /* ! NAVIGATION */
-    --nav-width: min(62rem, 100%);
-    --nav-icon-bg: #0F1030;
-    --nav-icon-active-bg: #fff;
-    --nav-bg-1: #ccc;
-    --nav-bg-2: #808080;
-    --nav-glider-bg: hsl(228, 8%, 35%);
-    --nav-ray-bg: #7ff;
-    --nav-ray-width: 3px;
-
-
     /* ! CONTACT SECTION */
     --input-border-color: #fff;
     --input-border-color-on-focus: #0f7;
@@ -71,11 +77,6 @@
     --input-placeholder-color: rgba(255, 255, 255, 0.75);
     --input-icon-color: #fff;
     --direct-email-text-color: #00FFBF;
-
-    /* ! TOOLTIP */
-    --tooltip-bg: #eee;
-    --tooltip-color: #000;
-
 }
 
 html {
