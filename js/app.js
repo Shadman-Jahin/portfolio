@@ -151,6 +151,48 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
+    // * ==========================================
+    // * PROJECT VIDEO INTERACTION
+    // * ==========================================
+
+    // Select all card elements
+    const cards = document.querySelectorAll('#projects .box');
+
+    cards.forEach(card => {
+        // Find the video element within the current card
+        const video = card.querySelector('#projects .project-video');
+
+        // Add event listener for when the mouse enters the card
+        card.addEventListener('mouseenter', () => {
+            // Check if the video is ready to play
+            if (video.readyState >= 2) {
+                // Reset video to the beginning for a fresh loop
+                video.currentTime = 0;
+                video.play().catch(error => {
+                    // Handle potential browser restrictions on autoplay
+                    console.error("Autoplay prevented:", error);
+                });
+            } else {
+                // If not ready, explicitly load it and then play (for 'preload="none"')
+                video.load();
+                video.play().catch(error => {
+                    console.error("Autoplay prevented after load:", error);
+                });
+            }
+        });
+
+        // Add event listener for when the mouse leaves the card
+        card.addEventListener('mouseleave', () => {
+            // Pause the video
+            video.pause();
+
+            // To be extra clean, set the current time back to 0
+            video.currentTime = video.duration;
+        });
+    });
+
+
     // * ==========================================
     // * CUSTOM SCROLL SPY
     // * ==========================================
