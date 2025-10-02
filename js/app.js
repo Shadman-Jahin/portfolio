@@ -78,33 +78,33 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // * =====================================
-    // * VIDEO PLAYER
-    // * =====================================
-    const videoContainer = document.querySelector(".video-container");
-    const video = videoContainer.querySelector("video");
-    const playButton = videoContainer.querySelector("#play-button");
+    // // * =====================================
+    // // * VIDEO PLAYER
+    // // * =====================================
+    // const videoContainer = document.querySelector(".video-container");
+    // const video = videoContainer.querySelector("video");
+    // const playButton = videoContainer.querySelector("#play-button");
 
-    // Function to toggle play and pause state
-    const togglePlayState = () => {
-        if (video.paused) {
-            video.play();
-            playButton.style.display = "none";
-            video.controls = true;
-        } else {
-            video.pause();
-            playButton.style.display = "block";
-        }
-    };
+    // // Function to toggle play and pause state
+    // const togglePlayState = () => {
+    //     if (video.paused) {
+    //         video.play();
+    //         playButton.style.display = "none";
+    //         video.controls = true;
+    //     } else {
+    //         video.pause();
+    //         playButton.style.display = "block";
+    //     }
+    // };
 
-    // Event listener for the custom play button
-    playButton.addEventListener("click", togglePlayState);
+    // // Event listener for the custom play button
+    // playButton.addEventListener("click", togglePlayState);
 
-    // Event listener for when the video ends
-    video.addEventListener("ended", () => {
-        playButton.style.display = "block";
-        video.controls = false;
-    });
+    // // Event listener for when the video ends
+    // video.addEventListener("ended", () => {
+    //     playButton.style.display = "block";
+    //     video.controls = false;
+    // });
 
 
     //  * ===========================================

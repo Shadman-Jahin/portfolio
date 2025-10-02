@@ -82,7 +82,7 @@ nav .items {
 
     display: flex;
     justify-content: center;
-    gap: 8rem;
+    gap: 10rem;
     width: min(50rem, 100%);
 }
 
@@ -97,23 +97,20 @@ nav .items a.active svg {
 }
 
 nav:has(.items a.active:first-child) .glider {
-    left: 8%;
+    left: 12.5%;
 }
 
 nav:has(.items a.active:nth-child(2)) .glider {
-    left: 29%;
+    left: 37.5%;
 }
 
+
 nav:has(.items a.active:nth-child(3)) .glider {
-    left: 50%;
+    left: 62.6%;
 }
 
 nav:has(.items a.active:nth-child(4)) .glider {
-    left: 70%;
-}
-
-nav:has(.items a.active:nth-child(5)) .glider {
-    left: 92%;
+    left: 87.5%;
 }
 
 /* GLIDER */
@@ -137,7 +134,7 @@ nav .glider {
 @media screen and (max-width: 576px) {
     nav .items {
         width: min(40rem, 100%);
-        gap: 6rem;
+        gap: 8rem;
     }
 
     nav .glider {
@@ -145,33 +142,46 @@ nav .glider {
         height: 13rem;
         border-radius: 2.5rem;
     }
+
+    nav:has(.items a.active:first-child) .glider {
+        left: 10.5%;
+    }
+
+    nav:has(.items a.active:nth-child(2)) .glider {
+        left: 37%;
+    }
+
+
+    nav:has(.items a.active:nth-child(3)) .glider {
+        left: 63.2%;
+    }
+
+    nav:has(.items a.active:nth-child(4)) .glider {
+        left: 89.3%;
+    }
 }
 
 @media screen and (max-width: 420px) {
     nav .items {
         width: min(32rem, 100%);
-        gap: 4.7rem;
+        gap: 5rem;
     }
 
-
     nav:has(.items a.active:first-child) .glider {
-        left: 5%;
+        left: 15%;
     }
 
     nav:has(.items a.active:nth-child(2)) .glider {
-        left: 28%;
+        left: 38%;
     }
 
+
     nav:has(.items a.active:nth-child(3)) .glider {
-        left: 50%;
+        left: 62%;
     }
 
     nav:has(.items a.active:nth-child(4)) .glider {
-        left: 72%;
-    }
-
-    nav:has(.items a.active:nth-child(5)) .glider {
-        left: 95%;
+        left: 85%;
     }
 }
 
@@ -347,6 +357,7 @@ nav .glider {
 
 #about .container {
     position: relative;
+    max-width: min(1400px, 100%);
 }
 
 #about .box {
